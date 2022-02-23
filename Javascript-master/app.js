@@ -89,14 +89,14 @@ function createTile(tile) {
         <h3>${tile.species}</h3>
         <img src="/images/${tile.species.toLowerCase()}.png" alt="Dino1-image">
     <h2 >${tile.height}</h2>
-    <h2>${tile.fact}</h2>
+    <p>${tile.fact}</p>
    
    
         </div>
     `
         :
         `<div class="human-tile" style="background-color: #e2ebf0">
-        <h3>${tile.name.toLowerCase()}</h3>
+        <h3>${tile.name}</h3>
         <img src="./images/human.png" alt="human-image">
     </div>
     `
