@@ -34,7 +34,9 @@ class Human{
         this.weight = weight;
         this.diet = diet;
     }
+    
 }
+
 const name = document.getElementById("name").value;
 const feetHeight = Number(document.getElementById("feet").value);
 const inchesHeight = Number(document.getElementById("inches").value);
@@ -44,6 +46,8 @@ const height = (feetHeight * 12) + inchesHeight;
 const human = (function (name, height, weight, diet) {
     return new Human(name, height, weight, diet);
 })(name, height, weight, diet);
+
+
 function shuffleDinoFacts(dino) {
     (dino.species === 'Pigeon') ? dino.displayFact = dino.fact : (Math.random() > 0.8 ) ? dino.displayFact = dino.where : (Math.random() > 0.8 ) ? dino.displayFact = dino.when : (Math.random() > 0.8 ) ? dino.displayFact = compareWeight(human, dino) : (Math.random() > 0.8 ) ? dino.displayFact = compareHeight(human, dino) : dino.displayFact = compareDiet(human, dino);
 }
@@ -54,6 +58,15 @@ compareBtn.addEventListener("click", () => {
      // Remove form from screen
     const form = document.getElementById("dino-compare");
     form.style.display = "none";
+    const name = document.getElementById("name").value;
+const feetHeight = Number(document.getElementById("feet").value);
+const inchesHeight = Number(document.getElementById("inches").value);
+const weight = Number(document.getElementById("weight").value);
+const diet = document.getElementById("diet").value;
+const height = (feetHeight * 12) + inchesHeight;
+const human = (function (name, height, weight, diet) {
+    return new Human(name, height, weight, diet);
+})(name, height, weight, diet);
     let tileCount = 0;
     dinos.then(dinosData => {
         for (const dino of dinosData) {
@@ -78,7 +91,7 @@ function createTile(tile, human) {
     `
         :
         `<div class="grid-item ">
-        <h3 style="color:red">${human.name}</h3>
+        <h3>${human.name}</h3>
         <img src="./images/human.png" alt="human-image">
     </div>
     `
